@@ -10,7 +10,7 @@ import org.jfree.data.xy.XYSeriesCollection;
 public class Points{
 	private final double a;
 	private final double b;
-	private final ArrayList<Point> measurements;
+	public final ArrayList<Point> measurements;
 	private final Statistics stats;
 	
 	public Points(double a, double b){

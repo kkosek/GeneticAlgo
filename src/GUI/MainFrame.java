@@ -11,9 +11,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollBar;
 import javax.swing.JTextField;
 
-import org.jfree.chart.ChartPanel;
+import points.Points;
 
 public class MainFrame extends JFrame{
 	private JPanel graphPanel;
@@ -27,6 +28,7 @@ public class MainFrame extends JFrame{
 	private JTextField waitingBar;
 	private JButton start;
 	private JComboBox algos;
+	private JScrollBar scroll;
 	
 	public MainFrame(){
 		this.setLayout(new BorderLayout());
@@ -93,10 +95,10 @@ public class MainFrame extends JFrame{
 		
 		if(chosenAlgo == 0){
 			//TODO wykonaj algorytm	
-			double [] values = {2,3,4,5,6,5,4,3};
-			graphPanel.add(Charts.averageValueOfFitnessFunction(values));
-			graphPanel.add(Charts.averageValueOfFitnessFunction(values));
-			graphPanel.repaint();
+			Points p = new Points(3,4);
+			
+			graphPanel.add(Charts.xyFitting(3, 4, p.measurements));
+			
 			
 		}else{
 			
