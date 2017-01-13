@@ -16,6 +16,7 @@ public class AlgorithmMikroPlusLambda {
 	public AlgorithmMikroPlusLambda(int numberOfPopulation,int numberOfChildren ){
 		
 	}
+	
 	public List<Person> crossing(Person person1,Person person2){
 		List<Person> kids= new ArrayList<Person>(2);
 		Person p1= new Person(0,0);

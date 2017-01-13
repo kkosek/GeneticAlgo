@@ -1,5 +1,6 @@
 package GUI;
 
+import points.*;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 
@@ -61,8 +62,7 @@ public class MainFrame extends JFrame{
 	}
 	
 	public void startAction(){
-		System.out.println(setPopulation.getText());
-		System.out.println(setChildren.getText());
+		Points points = new Points(2,3);
 	}
 	
 }
