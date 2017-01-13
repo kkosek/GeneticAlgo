@@ -8,13 +8,14 @@ public class Measurements{
 	private final ArrayList<Point> measurements;
 	private final double middle;
 	private final int bins = 20;
-	
+	private final HistogramDataset hist;
 	
 	public Measurements(double a, double b){
 		this.a = a;
 		this.b = b;
 		measurements = new ArrayList<>();
 		middle = 0.5;
+		hist = createHistogram(getExampleValues());
 	}
 	
 	private double getNumberFromWeibullDist(){
@@ -42,14 +43,17 @@ public class Measurements{
 	public void testChart(){
 		HistogramDataset hist = new HistogramDataset();
 		hist.setType(HistogramType.RELATIVE_FREQUENCY);
-		double [] s = new double[1000000];
-		for (int i = 0; i < 1000000; i++)
-			s[i] = getNumberFromWeibullDist();
-		
-		hist.addSeries("Histogram", s, bins);
+		hist.addSeries("Histogram", getExampleValues(), bins);
 		Test.print(createFactorMatrix());
 	}
 	
+	public double [] getExampleValues(){
+		double [] s = new double[1000000];
+		for (int i = 0; i < 1000000; i++)
+			s[i] = getNumberFromWeibullDist();
+		return s;
+	}
+ 	
 	private HistogramDataset createHistogram(double [] values){
 		HistogramDataset hist = new HistogramDataset();
 		hist.setType(HistogramType.RELATIVE_FREQUENCY);
@@ -86,6 +90,17 @@ public class Measurements{
 		
 		return factorMatrix;
 	}
+	
+/*	private double createXVectorOfSquareCoordinates(Point p, int length){
+		double [] xVector = new Vector
+	}*/
+	
+/*	private Square[][] createMatrixOfSquares(double x, double y){
+		
+		double startX = x - middle;
+		
+		
+	}*/
 	
 	
 
