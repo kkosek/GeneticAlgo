@@ -1,3 +1,4 @@
+package points;
 import java.util.ArrayList;
 import org.jfree.data.statistics.HistogramDataset;
 import org.jfree.data.statistics.HistogramType;

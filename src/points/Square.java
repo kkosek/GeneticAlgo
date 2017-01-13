@@ -1,3 +1,4 @@
+package points;
 public class Square{
 	private final double x1;
 	private final double x2;

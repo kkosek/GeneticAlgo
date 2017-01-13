@@ -1,9 +1,11 @@
-import java.util.ArrayList;
+package points;
 
+import java.util.ArrayList;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
+
 
 public class Points{
 	private final double a;

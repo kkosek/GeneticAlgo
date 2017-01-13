@@ -1,3 +1,4 @@
+package points;
 import javax.swing.JFrame;
 
 import org.jfree.chart.ChartPanel;

@@ -1,3 +1,4 @@
+package points;
 
 public class Point {
 	public final double x;
