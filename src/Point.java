@@ -8,7 +8,7 @@ public class Point {
 		this.stats = stats;
 		this.x = x;
 		this.y = y;
-		matrixOfUncertainity = new Square[stats.getLength()][stats.getLength()];
+		matrixOfUncertainity = createMatrixOfUncertaintity();
 	}
 
 	private double [] createVectorOfSquareCoordinates(double coordinate, int length){
@@ -34,5 +34,11 @@ public class Point {
 				squares[i-1][j-1] = new Square(xVector[i-1], xVector[i], yVector[j-1], yVector[j]);
 		
 		return squares;
+	}
+	
+	
+	public void print(){
+		System.out.println("x = " + x + ", y = " + y);
+		Test.print(matrixOfUncertainity);
 	}
 }

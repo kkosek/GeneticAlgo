@@ -1,13 +1,17 @@
 import javax.swing.JFrame;
 
+import org.jfree.chart.ChartPanel;
+
 public class Test extends JFrame{
 	private Points meas;
 	
 	public Test(){
-		meas = new Points(1, 1);
+		meas = new Points(1, 20);
 		meas.createMeasurements();
+		ChartPanel p = new ChartPanel(meas.plotGoalFunc());
 		this.setSize(600, 600);
-		//this.setVisible(true);
+		this.add(p);
+		this.setVisible(true);
 	}
 	
 	public static void print(double [][] array){
