@@ -44,7 +44,7 @@ public class Charts{
 		plot.addAnnotation(annotation);
 		
 		ChartPanel panel = new ChartPanel(chart);
-		panel.setPreferredSize(new Dimension(600, 300));
+		panel.setPreferredSize(new Dimension(600, 250));
 		
 		return panel;
 	}

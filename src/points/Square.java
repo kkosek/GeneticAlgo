@@ -19,7 +19,8 @@ public class Square{
 	public double x(double a, double b, double y){
 		return (y-b)/a;
 	}
-	
+
+    //sprawdza czy kwadrat o danych współrzędnych przecina prosta a zadanych współczynnikach	
 	public boolean containsLine(double a, double b){
 		if (y(a, b, x1) > y1 && y(a, b, x1) < y2)
 			return true;

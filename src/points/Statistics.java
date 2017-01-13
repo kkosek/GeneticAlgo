@@ -11,12 +11,13 @@ public class Statistics{
 	public final double[][] factorMatrix;
 	
 	public Statistics(){
-		middle = 0.5;
+		middle = 0.5; //tu się znajduje pomiar
 		hist = createHistogram(getExampleValues());
 		length = 0;
 		factorMatrix = createFactorMatrix();
 	}
 	
+    //lambda, k - współczynniki rozkładu
 	public double getNumberFromWeibullDist(){
 		double lambda = 1.0;
 		double k = 2;
@@ -44,7 +45,8 @@ public class Statistics{
 		hist.addSeries("Histogram", values, bins);
 		return hist;
 	} 
-	
+
+    //tworzę wektory które mnożę potem	
 	private ArrayList<Double> getFactorValues(HistogramDataset hist){
 		double binValue = hist.getY(0, 0).doubleValue();
 		int i = 0;
@@ -58,7 +60,9 @@ public class Statistics{
 		length = factorVector.size();
 		return factorVector;
 	}
+
 	
+    //każdemu przedziałowi niepewności przyporządkowuję macierz wag - to ta macierz
 	public double [][] createFactorMatrix(){
 		double [][] factorMatrix;
 		ArrayList<Double> factorVector = getFactorValues(hist);

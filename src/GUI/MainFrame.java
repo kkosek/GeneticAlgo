@@ -52,7 +52,7 @@ public class MainFrame extends JFrame{
 		waitingBar = new JTextField("");
 		waitingBar.setEditable(false);
 		
-		String [] algosNames = {"First", "Second"};
+		String [] algosNames = {"First", "Second"}; //TO dodaj nazwy algorytmów
 		algos = new JComboBox(algosNames);
 		start = new JButton((new AbstractAction("START"){
 			@Override
@@ -95,10 +95,9 @@ public class MainFrame extends JFrame{
 		
 		if(chosenAlgo == 0){
 			//TODO wykonaj algorytm	
-			Points p = new Points(3,4);
-			
+		    //zrób algorytm, dodaj wykresy podobnie jak poniżej 	
 			graphPanel.add(Charts.xyFitting(3, 4, p.measurements));
-			
+			//dodaj warunki na poszczególne algo
 			
 		}else{
 			

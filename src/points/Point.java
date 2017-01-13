@@ -3,8 +3,8 @@ package points;
 public class Point {
 	public final double x;
 	public final double y;
-	public final Square [][] matrixOfUncertainity;
-	private Statistics stats;
+    public final Square [][] matrixOfUncertainity; //macierz niepewności
+	private Statistics stats; 
 	public Point(double x, double y, Statistics stats){
 		this.stats = stats;
 		this.x = x;
@@ -12,6 +12,7 @@ public class Point {
 		matrixOfUncertainity = createMatrixOfUncertaintity();
 	}
 
+    //mam przedział niepewności, dzielę go na length przedziałów
 	private double [] createVectorOfSquareCoordinates(double coordinate, int length){
 		double [] vector = new double [length + 1];
 		vector[0] = -stats.hist.getStartXValue(0, 0);
@@ -23,7 +24,8 @@ public class Point {
 		}
 		return vector;
 	}
-	
+
+    //mnożę wektor i przypisuję kwadratowe pola, no tak jak w macierzy	
 	public Square [][] createMatrixOfUncertaintity(){
 		double [] xVector = createVectorOfSquareCoordinates(x, stats.getLength());
 		double [] yVector = createVectorOfSquareCoordinates(y, stats.getLength());
