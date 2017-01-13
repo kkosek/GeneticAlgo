@@ -86,4 +86,10 @@ public class Measurements{
 		
 		return factorMatrix;
 	}
+	
+	
+
+	
+	
+	
 }
