@@ -63,7 +63,8 @@ public class MainFrame extends JFrame{
 	}
 	
 	public void startAction(){
-		Person p = new Person(2, 3, new Points(2,3));
+		Points points = new Points(3, 4);
+		AlgorithmOneOfFiveSucess a = new AlgorithmOneOfFiveSucess(50, 10, points);
 		
 	}
 	

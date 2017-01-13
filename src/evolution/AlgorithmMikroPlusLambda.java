@@ -1,5 +1,7 @@
 package evolution;
+import points.*;
 
+import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -12,14 +14,16 @@ public class AlgorithmMikroPlusLambda {
 	private int numberOfPopulation;
 	private int  numberOfChildren;
 	private double constSigma;
+	private Points points;
 	
-	public AlgorithmMikroPlusLambda(int numberOfPopulation,int numberOfChildren ){
+	public AlgorithmMikroPlusLambda(int numberOfPopulation,int numberOfChildren, Points p){
+		points = p;
 	}
 	
 	public List<Person> crossing(Person person1,Person person2){
 		List<Person> kids= new ArrayList<Person>(2);
-		Person p1= new Person(0,0);
-		Person p2= new Person(0,0);
+		Person p1= new Person(0,0,points);
+		Person p2= new Person(0,0,points);
 		double o=generator.nextDouble();
 
 		p1.a =person1.a*o+(1-o)*person2.a;

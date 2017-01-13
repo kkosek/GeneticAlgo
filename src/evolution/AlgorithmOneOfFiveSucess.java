@@ -1,8 +1,10 @@
 package evolution;
-import java.util.Random;
-
+import points.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+
+import points.Points;
 public class AlgorithmOneOfFiveSucess
 {
 	private Random generator = new Random();
@@ -12,19 +14,21 @@ public class AlgorithmOneOfFiveSucess
 	private double sigma;
 	private double mutation;
 	private double numberOfSucess;
+	private Points points;
 
 	
-	public AlgorithmOneOfFiveSucess(int numberOfPopulation, double sigma){
+	public AlgorithmOneOfFiveSucess(int numberOfPopulation, double sigma, Points p){
 		 this.sigma = sigma;
 		 this.numberOfPopulation=numberOfPopulation;
 		 mutation= mutation();
 		 numberOfSucess=0;
 		 generation= new ArrayList<Person>(numberOfPopulation);
+		 points = p;
 	}
 	public void creatGeneration(List<Person> generation,int numberOfPopulation){
 		generation.clear();
 		for(int i=0;i<numberOfPopulation;i++)
-			generation.add(new Person(generator.nextDouble(),generator.nextDouble()));
+			generation.add(new Person(generator.nextDouble(),generator.nextDouble(), points));
 	}
 	public double generateNormalDistribution(){
 		return Math.sqrt(-2*generator.nextDouble())*Math.cos(2*Math.PI*generator.nextDouble());
@@ -42,7 +46,7 @@ public class AlgorithmOneOfFiveSucess
 		
 	}
 	public Person createChild(Person parent){
-		Person child = new Person (parent.a+mutation,parent.b+mutation);
+		Person child = new Person (parent.a+mutation,parent.b+mutation, points);
 		if(child.f > parent.f){
 			numberOfSucess++;
 			return child;
