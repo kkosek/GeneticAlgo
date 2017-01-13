@@ -1,15 +1,13 @@
 import javax.swing.JFrame;
-import org.jfree.chart.ChartPanel;
 
 public class Test extends JFrame{
-	private ChartPanel chartPanel;
-	private Measurements meas;
+	private Points meas;
 	
 	public Test(){
-		meas = new Measurements(1, 1);
-		meas.testChart();
+		meas = new Points(1, 1);
+		meas.createMeasurements();
 		this.setSize(600, 600);
-		this.setVisible(true);
+		//this.setVisible(true);
 	}
 	
 	public static void print(double [][] array){
@@ -17,7 +15,19 @@ public class Test extends JFrame{
 			for (int j = 0; j < array.length; j++)
 				System.out.print(array[k][j] + "\t");
 			System.out.print("\n");
-		}
+		}	
+	}
 	
+	public static void print(Square [][] array){
+		for (int k = 0; k < array.length;  k++){
+			for (int j = 0; j < array.length; j++)
+				System.out.print(array[k][j].toString() + "\t");
+			System.out.print("\n");
+		}
+	}
+	
+	public static void print(double [] array){
+		for (double d : array)
+			System.out.println(d);
 	}
 }

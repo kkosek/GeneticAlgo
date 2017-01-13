@@ -31,4 +31,9 @@ public class Square{
 		
 		return false;
 	}
+	
+	@Override
+	public String toString(){
+		return "(" + x1 + "," + y2 +")" + "\t(" + x2 + "," + y2 + ") \n (" + x1 + "," + y1 +")" + "\t(" + x2 + "," + y1 + ")\n" ;
+	}
 }

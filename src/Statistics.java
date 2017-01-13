@@ -2,49 +2,32 @@ import java.util.ArrayList;
 import org.jfree.data.statistics.HistogramDataset;
 import org.jfree.data.statistics.HistogramType;
 
-public class Measurements{
-	private final double a;
-	private final double b;
-	private final ArrayList<Point> measurements;
+public class Statistics{
 	private final double middle;
-	private final int bins = 20;
-	private final HistogramDataset hist;
+	public final int bins = 20;
+	public final HistogramDataset hist;
+	private int length;
+	public final double[][] factorMatrix;
 	
-	public Measurements(double a, double b){
-		this.a = a;
-		this.b = b;
-		measurements = new ArrayList<>();
+	public Statistics(){
 		middle = 0.5;
 		hist = createHistogram(getExampleValues());
+		length = 0;
+		factorMatrix = createFactorMatrix();
 	}
 	
-	private double getNumberFromWeibullDist(){
+	public double getNumberFromWeibullDist(){
 		double lambda = 1.0;
 		double k = 2;
-		return lambda*(Math.pow(-Math.log(1 - Math.random()), 1/k));
+		return lambda * (Math.pow(-Math.log(1 - Math.random()), 1 / k));
 	}
 	
-	private double getNoise(){
+	public double getNoise(){
 		double noise = getNumberFromWeibullDist();
 		if (noise < middle)
 			return noise;
 		else
 			return -noise;
-	}
-	
-	public void createMeasurements(){
-		for (int i = 0; i < 10; i++){
-			double x = i + getNoise();
-			double y = i * a + b + getNoise();
-			measurements.add(new Point(x, y));
-		}
-	}
-		
-	public void testChart(){
-		HistogramDataset hist = new HistogramDataset();
-		hist.setType(HistogramType.RELATIVE_FREQUENCY);
-		hist.addSeries("Histogram", getExampleValues(), bins);
-		Test.print(createFactorMatrix());
 	}
 	
 	public double [] getExampleValues(){
@@ -53,8 +36,8 @@ public class Measurements{
 			s[i] = getNumberFromWeibullDist();
 		return s;
 	}
- 	
-	private HistogramDataset createHistogram(double [] values){
+	
+	public HistogramDataset createHistogram(double [] values){
 		HistogramDataset hist = new HistogramDataset();
 		hist.setType(HistogramType.RELATIVE_FREQUENCY);
 		hist.addSeries("Histogram", values, bins);
@@ -71,17 +54,13 @@ public class Measurements{
 			factorVector.add(binValue);
 			binValue = hist.getY(0, i).doubleValue();
 		}
+		length = factorVector.size();
 		return factorVector;
 	}
 	
 	public double [][] createFactorMatrix(){
 		double [][] factorMatrix;
- 		double [] values = new double[1000000];
-		for (int i = 0; i < 1000000; i++)
-			values[i] = getNumberFromWeibullDist();
-		HistogramDataset hist = createHistogram(values);
 		ArrayList<Double> factorVector = getFactorValues(hist);
-		
 		factorMatrix = new double[factorVector.size()][factorVector.size()];
 		
 		for (int k = 0; k < factorVector.size(); k++)
@@ -91,20 +70,8 @@ public class Measurements{
 		return factorMatrix;
 	}
 	
-/*	private double createXVectorOfSquareCoordinates(Point p, int length){
-		double [] xVector = new Vector
-	}*/
-	
-/*	private Square[][] createMatrixOfSquares(double x, double y){
-		
-		double startX = x - middle;
-		
-		
-	}*/
-	
-	
+	public int getLength(){
+		return length;
+	}
 
-	
-	
-	
 }
