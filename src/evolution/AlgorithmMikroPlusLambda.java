@@ -14,7 +14,6 @@ public class AlgorithmMikroPlusLambda {
 	private double constSigma;
 	
 	public AlgorithmMikroPlusLambda(int numberOfPopulation,int numberOfChildren ){
-		
 	}
 	
 	public List<Person> crossing(Person person1,Person person2){
