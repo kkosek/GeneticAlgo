@@ -17,7 +17,7 @@ public class Points{
 		super();
 		this.a = a;
 		this.b = b;
-		measurements = new ArrayList<>();
+		measurements = new ArrayList<>(); 
 		stats = new Statistics();
 		createMeasurements();
 	}

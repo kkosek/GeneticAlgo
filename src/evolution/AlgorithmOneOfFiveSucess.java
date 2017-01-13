@@ -58,10 +58,9 @@ public class AlgorithmOneOfFiveSucess
 		List<Person> nextGeneration = new ArrayList<Person>(numberOfPopulation);
 		
 		generation.forEach(p-> nextGeneration.add(createChild(p)));
-		
 		changeMutation();
-		
 		generation= nextGeneration;	
+		
 	}
 	
 	
